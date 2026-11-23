@@ -1,0 +1,85 @@
+{
+  "dataset": "german.csv",
+  "target": "Creditability",
+  "positive_class": 1,
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratify": true
+  },
+  "validation_split_within_train": {
+    "validation_size": 0.2,
+    "random_state": 42,
+    "stratify": true
+  },
+  "selection_metric": "roc_auc on validation split",
+  "threshold": 0.5,
+  "validation_experiments": [
+    {
+      "model": "Random Forest, 500 деревьев",
+      "roc_auc": 0.7974330357142858,
+      "accuracy": 0.79375,
+      "precision": 0.816,
+      "recall": 0.9107142857142857,
+      "f1": 0.8607594936708861
+    },
+    {
+      "model": "Extra Trees, 500 деревьев",
+      "roc_auc": 0.7851562499999999,
+      "accuracy": 0.7625,
+      "precision": 0.8189655172413793,
+      "recall": 0.8482142857142857,
+      "f1": 0.8333333333333334
+    },
+    {
+      "model": "Gradient Boosting, 150, lr=0.04, depth=2",
+      "roc_auc": 0.7974330357142858,
+      "accuracy": 0.79375,
+      "precision": 0.8015267175572519,
+      "recall": 0.9375,
+      "f1": 0.8641975308641975
+    },
+    {
+      "model": "HistGradientBoosting, 200 итераций",
+      "roc_auc": 0.7436755952380952,
+      "accuracy": 0.7625,
+      "precision": 0.8032786885245902,
+      "recall": 0.875,
+      "f1": 0.8376068376068376
+    },
+    {
+      "model": "MLP (64, 32), alpha=0.01",
+      "roc_auc": 0.7832961309523809,
+      "accuracy": 0.75625,
+      "precision": 0.792,
+      "recall": 0.8839285714285714,
+      "f1": 0.8354430379746836
+    },
+    {
+      "model": "Gradient Boosting, 250, lr=0.08, depth=1",
+      "roc_auc": 0.8102678571428572,
+      "accuracy": 0.79375,
+      "precision": 0.8110236220472441,
+      "recall": 0.9196428571428571,
+      "f1": 0.8619246861924686
+    }
+  ],
+  "selected_model": {
+    "name": "GradientBoostingClassifier",
+    "parameters": {
+      "n_estimators": 250,
+      "learning_rate": 0.08,
+      "max_depth": 1,
+      "min_samples_leaf": 5,
+      "subsample": 0.8,
+      "random_state": 42
+    }
+  },
+  "test_metrics": {
+    "roc_auc": 0.8272619047619048,
+    "accuracy": 0.79,
+    "precision": 0.8266666666666667,
+    "recall": 0.8857142857142857,
+    "f1": 0.8551724137931035
+  }
+}
